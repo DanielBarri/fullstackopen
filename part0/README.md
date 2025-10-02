@@ -4,6 +4,7 @@
 
 In this section, I will show the chain of events caused when the user creates a new note on the page: [https://studies.cs.helsinki.fi/exampleapp/notes](https://studies.cs.helsinki.fi/exampleapp/notes) by writing something into the text field and clicking the Save button.
 
+```mermaid
 sequenceDiagram
 participant browser
 participant server
@@ -13,7 +14,7 @@ participant server
     server-->>browser: URL redirect
     deactivate server
 
-       browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
     deactivate server
@@ -36,16 +37,18 @@ participant server
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
+```
 
 ## 0.5: Single page app diagram
 
 In this section, I will create a diagram depicting the situation where the user goes to the single-page-app version of the notes app at [https://studies.cs.helsinki.fi/exampleapp/spa](https://studies.cs.helsinki.fi/exampleapp/spa).
 
+```mermaid
 sequenceDiagram
 participant browser
 participant server
 
-       browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate server
     server-->>browser: HTML document
     deactivate server
@@ -68,18 +71,21 @@ participant server
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
+```
 
 ## 0.6: New note in Single page app diagram
 
 In this section I will create a diagram depicting the situation where the user creates a new note using the single-page version of the app.
 
+```mermaid
 sequenceDiagram
 participant browser
 participant server
 
-       browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     activate server
     server-->>browser: status 201 Created
     deactivate server
 
     Note right of browser: The browser uses the JavaScript code it fetched from the server earlier to load the new note.
+```
